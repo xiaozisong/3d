@@ -1,6 +1,4 @@
 import * as THREE from 'three';
-// 引入轨道控制器，轨道控制器必须显示引入
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 export const render = () => {
   // 创建场景
   const sence = new THREE.Scene()
@@ -30,29 +28,11 @@ export const render = () => {
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.appendChild(renderer.domElement)
 
-  // 添加轨道控制器
-  const controls = new OrbitControls(camera, renderer.domElement)
-
-  // 轨道控制器的change事件
-  controls.addEventListener('change', (e) => {
-    console.log('触发了change事件', e)
-  })
-
-  // 轨道控制器添加阻尼
-  controls.enableDamping = true
-  // 控制阻尼的大小
-  controls.dampingFactor = 0.01
-  // 轨道控制器开启自动旋转
-  controls.autoRotate = true
-  // 控制轨道控制器自动旋转的速率 默认2.0
-  controls.autoRotateSpeed = 0.5
-
   // renderer.render(sence, camera)
 
   const animate = () => {
     requestAnimationFrame(animate)
-    // 每次鼠标点击 需要调用控制器的update方法
-    controls.update()
+    cube.rotation.x += 0.01
     // 重新渲染场景
     renderer.render(sence, camera)
   }
