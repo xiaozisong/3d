@@ -17,10 +17,6 @@ export const render = () => {
   const cube = new THREE.Mesh(geometryBox, material)
   // 添加地面网格
   const gridHelper = new THREE.GridHelper()
-  // 添加坐标轴
-  const axesHelper = new THREE.AxesHelper(5)
-  // axesHelper.position.y
-  sence.add(axesHelper)
 
   // 将内容添加到场景中
   sence.add(cube)
